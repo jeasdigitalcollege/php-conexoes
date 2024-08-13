@@ -17,15 +17,17 @@
 
             // foreach ($resultado->fetchAll() as $cada) {
             foreach ($resultado as $cada) {
+                $id = $cada['id'];
+
                 echo "
                     <tr>
-                        <td>{$cada['id']}</td>
+                        <td>{$id}</td>
                         <td>{$cada['nome']}</td>
                         <td>{$cada['email']}</td>
                         <td>{$cada['telefone']}</td>
                         <td>
-                            <a href=''>Editar</a>
-                            <a href=''>Excluir</a>
+                            <a href='/editar?id={$id}'>Editar</a>
+                            <a href='#' onclick='excluir({$id})'>Excluir</a>
                         </td>
                     </tr>
                 ";
@@ -33,3 +35,13 @@
         ?>
     </tbody>
 </table>
+
+<script>
+    function excluir(id) {
+        let resposta = confirm('Voce tem certeza?');
+
+        if (resposta === true) {
+            location.href = '/excluir?id='+id;
+        }
+    }
+</script>

@@ -1,9 +1,39 @@
 <?php
 
-//pegando a url que o usuario acessou
-$url = $_SERVER['REQUEST_URI'];
+include '../config/routes.php';
 
-if ($url === '/listar' || $url === '/') {
+//pegando a url que o usuario acessou
+$url = explode('?', $_SERVER['REQUEST_URI'])[0];
+// $url = parse_url('/excluir?id=1234', PHP_URL_PATH);
+
+
+if ($url === '/editar') {
+    if ($_POST) {
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
+        $id = $_GET['id'];
+
+        $sql = "UPDATE tb_contatos 
+                SET nome='{$nome}', email='{$email}', telefone='{$telefone}' 
+                WHERE id='{$id}'";
+
+        $conexao = include '../src/conexao.php';
+        $conexao->query($sql);
+
+        header('location: /listar');
+    }
+
+    view('editar');
+} else if ($url === '/excluir') {
+    $id = $_GET['id'];
+    $sql = "DELETE FROM tb_contatos WHERE id='{$id}'";
+
+    $conexao = include '../src/conexao.php';
+    $conexao->query($sql);
+
+    header('location: /listar');
+} else if ($url === '/listar' || $url === '/') {
     view('listar');
 } else if ($url === '/cadastro') {
 
