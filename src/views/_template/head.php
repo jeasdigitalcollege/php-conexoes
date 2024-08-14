@@ -16,8 +16,14 @@
 
 
         <nav>
-            <a class="btn btn-outline-dark" href="/listar">Listar</a>
-            <a class="btn btn-outline-dark" href="/cadastro">Cadastrar</a>
+            <?php 
+                $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            ?>
+
+            <a class="btn <?php echo $url === '/contatos/listar' ? 'btn-dark' : 'btn-outline-dark';  ?>" href="/contatos/listar">Listar Contatos</a>
+            <a class="btn <?php echo $url === '/contatos/adicionar' ? 'btn-dark' : 'btn-outline-dark';  ?>" href="/contatos/adicionar">Novo Contato</a>
+            <a class="btn <?php echo $url === '/lugares/listar' ? 'btn-dark' : 'btn-outline-dark';  ?>" href="/lugares/listar">Listar Lugares</a>
+            <a class="btn <?php echo $url === '/lugares/adicionar' ? 'btn-dark' : 'btn-outline-dark';  ?>" href="/lugares/adicionar">Novo Lugar</a>
         </nav>
 
         <hr>

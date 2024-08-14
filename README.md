@@ -32,3 +32,18 @@ Acesse o http://localhost:8080
 ## Para alterar alguma coisa
 
 Dentro da pasta `public` existe um arquivo `index.php`, altere-o, salve e dê um F5 lá no navegaro <http://localhost:8080>
+
+## Fluxo da aplicacao
+
+```mermaid
+flowchart TD
+    Cliente --route--> index.php
+    index.php <--> r[routes]
+    view <--> editar.php
+    view <--> listar.php
+    view <--> cadastrar.php
+    c[conexao] --> controller
+    r --> controller
+    controller --> view
+    controller --> BancoDeDados
+```
