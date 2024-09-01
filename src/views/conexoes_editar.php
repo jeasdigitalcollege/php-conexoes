@@ -1,12 +1,22 @@
+<?php
+    // Arquivo: conexoes_editar.php
+    // ==================================================================
+
+    $mensagem = "";
+
+?>
+
+<hr>
+<div class="listagem">
+    <span>Edição de Conexão</span>
+</div>
+<hr>
+
 <section class="row">
     <div class="col">
         <div class="card card-body"> 
             <div id="erros">
 
-            </div>
-
-            <div>
-                <h3>Editar Contato</h3>
             </div>
 
             <form action="" method="post">
@@ -19,7 +29,10 @@
                 <label for="">Telefone</label>
                 <input value="<?=$dados->telefone;?>" type="text" name="telefone" class="form-control mb-3">
 
-                <button id="btn_enviar"" class="btn btn-dark w-100">PRONTO</button>
+                <span><?php echo $mensagem ?></span>
+                <br><br>
+
+                <button id="btn_enviar"" class="btn btn-dark w-100">Salvar</button>
             </form>
         </div>
     </div>
