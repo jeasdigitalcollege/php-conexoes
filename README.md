@@ -31,7 +31,7 @@ Acesse o http://localhost:8080
 
 ## Para alterar alguma coisa
 
-Dentro da pasta `public` existe um arquivo `index.php`, altere-o, salve e dê um F5 lá no navegaro <http://localhost:8080>
+Dentro da pasta `public` existe um arquivo `index.php`, altere-o, salve e dê um F5 lá no navegador <http://localhost:8080>
 
 ## Fluxo da aplicacao
 
